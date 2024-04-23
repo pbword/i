@@ -1,0 +1,33 @@
+#include <DHT.h>
+#include <DHT_U.h>
+
+#define pin 4
+#define type DHT11
+
+DHT dht(pin,type);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+
+}
+
+void loop() {
+  float cel=dht.readTemperature();
+  float far=dht.readTemperature(true);
+  float hum= dht.readHumidity();
+
+  Serial.print("temp C::");
+  Serial.println(cel);
+
+  Serial.print("temp f::");
+  Serial.println(far);
+
+  Serial.print("Humidity::");
+  Serial.println(hum);
+
+  Serial.println("--------------------------");
+  delay(2000);
+  
+
+}

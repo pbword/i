@@ -1,0 +1,59 @@
+char mychar;
+void setup()
+{
+
+Serial.begin(9600);
+
+  pinMode(9,OUTPUT); 
+  pinMode(8,OUTPUT); 
+  pinMode(7,OUTPUT); 
+  pinMode(6,OUTPUT); 
+}
+void loop()
+{
+  Serial.println("enter which colour you want to Blink\n1.'b' for blue colour \n2.'g' for green colour \n3.'r' for red colour \n4. 'y' for yellow color");
+  while  (Serial.available()>=0)
+  {
+    mychar = Serial.read();
+    if (mychar == 'r')
+    {
+      digitalWrite(9,HIGH);
+      delay(1000);
+      digitalWrite(9,LOW);
+      delay(1000);
+      digitalWrite(8,LOW);
+      digitalWrite(7,LOW);
+      digitalWrite(6,LOW);
+    }
+    if (mychar == 'g')
+    {
+      digitalWrite(8,HIGH);
+      delay(1000);
+      digitalWrite(8,LOW);
+      delay(1000);
+      digitalWrite(9,LOW);
+      digitalWrite(7,LOW);
+      digitalWrite(6,LOW);
+    }
+if (mychar == 'y')
+    {
+      digitalWrite(7,HIGH);
+      delay(1000);
+      digitalWrite(7,LOW);
+      delay(1000);
+      digitalWrite(8,LOW);
+      digitalWrite(9,LOW);
+      digitalWrite(6,LOW);
+    }
+    if (mychar == 'b')
+    {
+      digitalWrite(6,HIGH);
+      delay(1000);
+      digitalWrite(6,LOW);
+      delay(1000);
+      digitalWrite(8,LOW);
+      digitalWrite(7,LOW);
+      digitalWrite(9,LOW);
+    }
+  }
+}

@@ -1,0 +1,58 @@
+// Define LED pins
+#define GREEN_LED 2
+#define YELLOW_LED 3
+#define RED_LED 4
+
+// Define counter variable
+int counter = 0;
+
+// Setup function
+void setup() {
+  // Set LED pins as output
+  pinMode(GREEN_LED, OUTPUT);
+  pinMode(YELLOW_LED, OUTPUT);
+  pinMode(RED_LED, OUTPUT);
+
+  // Start serial communication
+  Serial.begin(9600);
+}
+
+// Loop function
+void loop() {
+  // Check if there is data available to read
+  if (Serial.available() > 0) {
+    // Read the input from the user
+    counter = Serial.parseInt();
+  }
+  
+  // Check counter value
+  if (counter < 5) {
+    // Turn on green LED
+    digitalWrite(GREEN_LED, HIGH);
+    // Turn off yellow and red LED
+    digitalWrite(YELLOW_LED, LOW);
+    digitalWrite(RED_LED, LOW);
+  } else if (counter >= 5 && counter <= 10) {
+    // Turn on yellow LED
+    digitalWrite(YELLOW_LED, HIGH);
+    // Turn off green and red LED
+    digitalWrite(GREEN_LED, LOW);
+    digitalWrite(RED_LED, LOW);
+  } else if(counter >=10 && counter <=15){
+    // Turn on red LED
+    digitalWrite(RED_LED, HIGH);
+    // Turn off green and yellow LED
+    digitalWrite(GREEN_LED, LOW);
+    digitalWrite(YELLOW_LED, LOW);
+  }
+  else {
+   digitalWrite(RED_LED, LOW);
+    digitalWrite(GREEN_LED, LOW);
+    digitalWrite(YELLOW_LED, LOW);
+  }
+  counter++;
+  
+  // Delay for 1 second
+  delay(1000);
+}
+
