@@ -1,0 +1,13 @@
+void setup() {
+  Serial.begin(9600);
+}
+void loop() {
+  int num = Serial.parseInt();
+    int square = num * num;
+
+    // Print the square
+    Serial.print("The square of ");
+    Serial.print(num);
+    Serial.print(" is ");
+    Serial.println(square);
+}
