@@ -1,8 +1,8 @@
 #include <DHT.h>
 #include <DHT_U.h>
 
-#define pin 4
-#define type DHT11
+#define pin 9
+#define type DHT22
 
 DHT dht(pin,type);
 
@@ -17,13 +17,13 @@ void loop() {
   float far=dht.readTemperature(true);
   float hum= dht.readHumidity();
 
-  Serial.print("temp C::");
+  Serial.print("Temp C:");
   Serial.println(cel);
 
-  Serial.print("temp f::");
+  Serial.print("Temp F:");
   Serial.println(far);
 
-  Serial.print("Humidity::");
+  Serial.print("Humidity:");
   Serial.println(hum);
 
   Serial.println("--------------------------");
