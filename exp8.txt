@@ -1,0 +1,25 @@
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Enter the number");
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    // Read the input as a string
+    String input = Serial.readStringUntil('\n');
+
+    // Attempt to parse the string as an integer
+    int num = input.toInt();
+
+    // Check if the conversion was successful
+    if (num != 0 || input.toInt() != 0) {
+      int square = num * num;
+
+      // Print the square
+      Serial.print("The square of ");
+      Serial.print(num);
+      Serial.print(" is ");
+      Serial.println(square);
+    } 
+  }
+}
